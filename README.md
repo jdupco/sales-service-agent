@@ -97,7 +97,6 @@ sales-service-agent/
 │               └── webhooks.py         # Endpoints / entrada de webhooks
 │
 └── tests/
-    ├── __init__.py
     ├── test_agent.py                   # Tests del agente / LangGraph
     ├── test_rag.py                     # Tests del pipeline RAG
     └── test_api.py                     # Tests de FastAPI

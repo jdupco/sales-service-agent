@@ -1,17 +1,44 @@
 [project]
 name = "sales-service-agent"
 version = "0.1.0"
-description = "Add your description here"
+description = "Agente Inteligente de Ventas y Servicio al Cliente"
 readme = "README.md"
 authors = [
     { name = "Juan David Urrea Parra", email = "jdup.co@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
-
-[project.scripts]
-sales-service-agent = "sales_service_agent:main"
+dependencies = [
+    "litellm>=1.102.1",
+    "pydantic>=2.13.5",
+    "pydantic-settings>=2.15.0",
+    "python-dotenv>=1.2.3",
+]
 
 [build-system]
 requires = ["uv_build>=0.12.15,<0.13.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "ruff>=0.16.9",
+    "ty>=0.0.84",
+]
+
+# Configuración de Ruff (Linter & Formatter)
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+# Configuración de Ty (Type Checker)
+[tool.ty.environment]
+python-version = "3.12"
+
+# Configuración de Pytest (Testing Framework)
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
